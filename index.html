@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="car.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Dashboard</title>
+    <link rel="stylesheet" href="styles.css"> <!-- You can link to an external CSS file for styling -->
+</head>
+<body>
+    <header>
+        <h1>Car Rental Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cars.html">Cars</a></li>
+                <li><a href="reservations.html">Reservations</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="car-list">
+            <h2>Available Cars</h2>
+             <p> Select available cars </p>
+        <input type="file" id="carFileInput">
+        <pre id="fileContent"></pre>
+           
+        </section>
+
+        <section class="reservation-form">
+            <h2>Make a Reservation</h2>
+         
+            <!-- Reservation form goes here -->
+           
+            <p> Select a reservation  </p>
+            <input type="file" id="reservationFileInput">
+            <pre id="reservationFileContent"></pre>
+          
+
+        </section>
+    </main>
+
+        <script>
+            const carFileInput = document.getElementById('carFileInput');
+            const carFileContent = document.getElementById('fileContent');
+        
+            carFileInput.addEventListener('change', function (event) {
+                const selectedFile = event.target.files[0];
+        
+                if (selectedFile) {
+                    const reader = new FileReader();
+        
+                    reader.onload = function (e) {
+                        const fileText = e.target.result;
+                        carFileContent.textContent = fileText;
+                    };
+        
+                    reader.readAsText(selectedFile);
+                } else {
+                    carFileContent.textContent = 'No file selected.';
+                }
+            });
+       
+            <!-- Reservation Script -->
+
+            
+                const reservationFileInput = document.getElementById('reservationFileInput');
+                const reservationFileContent = document.getElementById('reservationFileContent');
+            
+                reservationFileInput.addEventListener('change', function (event) {
+                    const selectedFile = event.target.files[0];
+            
+                    if (selectedFile) {
+                        const reader = new FileReader();
+            
+                        reader.onload = function (e) {
+                            const fileText = e.target.result;
+                            reservationFileContent.textContent = fileText;
+                        };
+            
+                        reader.readAsText(selectedFile);
+                    } else {
+                        reservationFileContent.textContent = 'No file selected.';
+                    }
+                });
+            </script>
+    
+    <footer>
+        <p>&copy; 2023 Car Rental System</p>
+    </footer>
+</body>
+</html>
+
+

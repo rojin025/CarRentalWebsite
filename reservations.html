@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Reports - Car Rental System</title>
+
+        <link rel="stylesheet" href="car.css">
+
+    </head>
+
+</head>
+
+<body>
+
+<header>
+
+
+
+    <h1>Reports</h1>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="cars.html">Cars</a></li>
+
+            <li><a href="reservations.html">Reservations</a></li>
+
+            <li><a href="reports.html">Reports</a></li>
+
+            <li><a href="#">Logout</a></li>
+
+        </ul>
+
+    </nav>
+
+
+
+</header>
+
+
+
+<main>
+
+    <section>
+
+        <h2>Reservation Reports</h2>
+
+
+
+        <div class="reservation-report">
+
+            <p><strong>Reservation ID:</strong> 12345</p>
+
+            <p><strong>Car:</strong> Toyota Camry</p>
+
+            <p><strong>Date:</strong> 2023-09-20</p>
+
+            <p><strong>Status:</strong> Active</p>
+
+            <button onclick="modifyReservation(12345)">Modify</button>
+
+            <button onclick="cancelReservation(12345)">Cancel</button>
+
+        </div>
+
+
+
+        <div class="reservation-report">
+
+            <p><strong>Reservation ID:</strong> 67890</p>
+
+            <p><strong>Car:</strong> Ford Explorer</p>
+
+            <p><strong>Date:</strong> 2023-09-25</p>
+
+            <p><strong>Status:</strong> Active</p>
+
+            <button onclick="modifyReservation(67890)">Modify</button>
+
+            <button onclick="cancelReservation(67890)">Cancel</button>
+
+        </div>
+
+        <div class="reservation-report">
+
+            <p><strong>Reservation ID:</strong> 1245</p>
+
+            <p><strong>Car:</strong> Ford Explorer</p>
+
+            <p><strong>Date:</strong> 2023-09-25</p>
+
+            <p><strong>Status:</strong> Active</p>
+
+            <button onclick="modifyReservation(67890)">Modify</button>
+
+            <button onclick="cancelReservation(67890)">Cancel</button>
+
+        </div>
+
+        <div class="reservation-report">
+
+            <p><strong>Reservation ID:</strong> 1423</p>
+
+            <p><strong>Car:</strong> Honda Civic</p>
+
+            <p><strong>Date:</strong> 2015-08-19</p>
+
+            <p><strong>Status:</strong> Active</p>
+
+            <button onclick="modifyReservation(67890)">Modify</button>
+
+            <button onclick="cancelReservation(67890)">Cancel</button>
+
+        </div>
+
+
+
+    </section>
+
+
+
+</main>
+
+
+
+<footer>
+
+    <p>&copy; 2023 Car Rental System</p>
+
+</footer>
+
+<script>
+
+    let reservationsData;
+
+
+
+    // Function to fetch CSV data and display reservation reports (Simulated)
+
+    async function displayReservations() {
+
+        // Simulated data (you can replace this with your actual data)
+
+        reservationsData = [
+
+            {
+
+                'Reservation ID': '12345',
+
+                'Car': 'Toyota Camry',
+
+                'Date': '2023-09-20',
+
+                'Status': 'Active'
+
+            },
+
+            {
+
+                'Reservation ID': '67890',
+
+                'Car': 'Ford Explorer',
+
+                'Date': '2023-09-25',
+
+                'Status': 'Active'
+
+            },
+
+            {
+
+                'Reservation ID': '1245',
+
+                'Car': 'Ford Explorer',
+
+                'Date': '2023-09-25',
+
+                'Status': 'Active'
+
+            },
+
+            {
+
+                'Reservation ID': '1423',
+
+                'Car': 'Honda Civic',
+
+                'Date': '2015-08-19',
+
+                'Status': 'Active'
+
+            },
+
+
+
+        ];
+
+
+
+        renderReservations(reservationsData);
+
+    }
+
+
+
+    // Function to render reservation reports
+
+    function renderReservations(reservations) {
+
+        const reservationContainer = document.querySelector('main section');
+
+        reservationContainer.innerHTML = ''; // Clear existing content
+
+        reservations.forEach(reservation => {
+
+            const reservationDiv = document.createElement('div');
+
+            reservationDiv.classList.add('reservation-report');
+
+            reservationDiv.innerHTML = `
+
+                    <p><strong>Reservation ID:</strong> ${reservation['Reservation ID']}</p>
+
+                    <p><strong>Car:</strong> ${reservation['Car']}</p>
+
+                    <p><strong>Date:</strong> ${reservation['Date']}</p>
+
+                    <p><strong>Status:</strong> ${reservation['Status']}</p>
+
+                    <button onclick="modifyReservation('${reservation['Reservation ID']}')">Modify</button>
+
+                    <button onclick="cancelReservation('${reservation['Reservation ID']}')">Cancel</button>
+
+                `;
+
+            reservationContainer.appendChild(reservationDiv);
+
+        });
+
+    }
+
+
+
+    // Function to modify a reservation (Simulated)
+
+    function modifyReservation(reservationId) {
+
+        const confirmed = confirm("Are you sure you want to modify this reservation?");
+
+        if (confirmed) {
+
+            const reservationIndex = reservationsData.findIndex(res => res['Reservation ID'] === reservationId);
+
+            if (reservationIndex !== -1) {
+
+                // Simulate updating the status of the reservation to "Modified"
+
+                reservationsData[reservationIndex].Status = 'Modified';
+
+                // Re-render the reservation reports to reflect the change
+
+                renderReservations(reservationsData);
+
+            } else {
+
+                alert('Reservation not found.');
+
+            }
+
+        }
+
+    }
+
+
+
+    // Function to cancel a reservation (Simulated)
+
+    function cancelReservation(reservationId) {
+
+        const confirmed = confirm("Are you sure you want to cancel this reservation?");
+
+        if (confirmed) {
+
+            const reservationIndex = reservationsData.findIndex(res => res['Reservation ID'] === reservationId);
+
+            if (reservationIndex !== -1) {
+
+                // Simulate removing the canceled reservation from the array
+
+                reservationsData.splice(reservationIndex, 1);
+
+                // Re-render the reservation reports to reflect the change
+
+                renderReservations(reservationsData);
+
+            } else {
+
+                alert('Reservation not found.');
+
+            }
+
+        }
+
+    }
+
+
+
+    // Load reservation data when the page is loaded
+
+    window.addEventListener('load', () => {
+
+        displayReservations();
+
+    });
+
+</script>
+
+</body>
+
+</html>
