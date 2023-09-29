@@ -1,0 +1,5 @@
+Id,Make,Model,Year,RentalPrice,Availability,Type
+1,Toyota,Corolla,2017,80,Available,Sedan
+2,Ford,Explorer,2020,320,Available,Truck
+3,Honda,HR-V,2019,100,Available,SUV
+4,Toyota,Camry,2022,170,Available,Sedan
