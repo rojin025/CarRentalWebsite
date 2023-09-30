@@ -1,206 +1,112 @@
-// const APP = {
-//     data:[],
-//     //DataBase
-//     const car1 = {
-//         brand: "Toyota",
-//         model: "Prius",
-//         type: "Sedan",
-//         price: 49,
-//         img: "img/prius.avif",
-//         isAvailable: true
-//     },
-//     const car2 = {
-//         brand: "Toyota",
-//         model: "Corolla",
-//         type: "Sedan",
-//         price: 80,
-//         img: "img/corolla.avif",
-//         isAvailable: true
-//     },
-//     const car3 = {
-//         brand: "Toyota",
-//         model: "Rav-4",
-//         type: "SUV",
-//         price: 190,
-//         img: "img/rav_4.avif",
-//         isAvailable: true
-//     },
-//     const car4 = {
-//         brand: "Toyota",
-//         model: "Tacoma",
-//         type: "Truck",
-//         price: 300,
-//         img: "img/tacoma.avif",
-//         isAvailable: true
-//     },
-//     const cars = [car1, car2, car3, car4],
-//
-// //####################################################################################################################
-// //Cars Section
-//     init() { APP.addListeners()
-//     },
-//     addListeners() {
-//         let filteredCar = [];
-//         const container = document.querySelector('.cars-container'); // Selecting container of cars
-//         const carFilter = document.querySelector('.cars-filter');
-//         const carType = document.querySelector('#carType');
-//     },
-//
-//     carFilter.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         const carType = document.querySelector('#carType');
-//         const priceRange = document.querySelector('#priceRange');
-//
-//         const [minPrice, maxPrice] = getPriceMinMax(priceRange.value, '-');
-//
-//         //before calling cartypefiler
-//         carTypeFilter(carType);
-//         displayCar(minPrice, maxPrice);
-//
-//         const filer_options = document.querySelector('.filter_options');
-//         filer_options.classList.add('is-hidden');
-//     });
-//
-//     function carTypeFilter(carFilter)
-// {
-//     // console.log("I am inside car Filter")
-//     if (carFilter.value !== "all") {
-//         for (let currentCar of cars) {
-//             if (isEqualCaseInsensitive(currentCar.type, carFilter.value)) {
-//                 filteredCar.push(currentCar);
-//             }
-//         }
-//     } else {
-//         for (let car of cars) {
-//             filteredCar.push(car);
-//         }
-//     }
-// }
-//
-// function isEqualCaseInsensitive(car, car1) {
-//     return car.toUpperCase() === car1.toUpperCase();
-// }
-//
-// /**
-//  * min = 0
-//  * max = 50
-//  * @param stringToSplit
-//  * @param separator "-"
-//  */
-// function getPriceMinMax(stringToSplit, separator) {
-//     if (typeof stringToSplit !== 'string') {
-//         console.error("Invalid data type: Not string:", stringToSplit);
-//         return;
-//     }
-//
-//     const [minPrice, maxPrice] = stringToSplit.split('-').map(Number);  //  "0-50" -> [0, 50]
-//     return [minPrice, maxPrice];
-// }
-//
-// function displayCar(min, max) {
-//     // console.dir(`total car is ${cars}`);
-//     console.dir(`Filtered car is ${filteredCar}`);
-//
-//     for (const car of filteredCar) {
-//         // console.dir(car);
-//         // console.log(`I am inside display car - ${car}`);
-//         console.log(`car price of ${car.brand}${car.model} : ${car.type} is ${car.price}`);
-//         if (car.price >= min && car.price <= max) {
-//             console.log(`I am inside display car - ${car}`);
-//             // // creating and adding elements in page by new.
-//
-//             //Creating Div to hold car Info
-//             const availableCar = document.createElement('div');
-//             availableCar.classList.add('cars');
-//
-//             // Create elements for car details
-//             const label = document.createElement('span');
-//             label.innerText = `${car.brand} : ${car.model} | Price Per Day :`;
-//             label.classList.add('rpd');
-//
-//             const carPrice = document.createElement('div');
-//             carPrice.innerHTML = car.price;
-//             carPrice.classList.add('price-head');   // Adding Class inside carPrice Div
-//
-//             const hrElt = document.createElement('hr');
-//
-//             //Working with image
-//             const imageElement = document.createElement('img');
-//             imageElement.src = car.img;   // adding source of each car
-//
-//             //Append elements to availableCar
-//             availableCar.appendChild(label);
-//             availableCar.appendChild(hrElt);
-//             availableCar.appendChild(carPrice);
-//             availableCar.appendChild(imageElement);
-//
-//             // const imgDiv    = document.querySelector('div');
-//             // imgDiv.classList.add('carImg');
-//             // availableCar.appendChild(imgDiv);
-//
-//             container.appendChild(availableCar);
-//             // //   Not a good practice
-//             // car.classId.classList.remove('is-hidden');
-//         }
-//     }
-// }
-//
-// //####################################################################################################################
-// //Reservation Section
-// const fullName = document.querySelector('#fullName');
-// const reservationCar = document.querySelector('#reservationCar');
-// const pickupDate = document.querySelector('#pickupDate');
-// const returnDate = document.querySelector('#returnDate');
-//
-// const submitButton = document.querySelector('#submitButton');
-//
-// submitButton.addEventListener('click', function (e) {
-//     e.preventDefault();
-//
-//     console.log("clicked");
-//     console.log("");
-// })
-// }
-//
-//
-//
-//
-// // const fileInput = document.querySelector('input');
-// // const carList = document.getElementById("carList");
-// //
-// // fileInput.addEventListener('change', function ()  {
-// //
-// //     const fr = new FileReader();
-// //
-// //     fr.readAsText(fileInput.files[0]);
-// //
-// //     fr.addEventListener('load', () => {
-// //         // carList.textContent = fr.result;     //To read text file
-// //
-// //         const csv = fr.result;
-// //
-// //         const array = csv.split('\r\n').map((line) => {
-// //             return line.split(',');
-// //         });
-// //
-// //         const table = document.createElement('table');
-// //
-// //         array.forEach((line, index) => {
-// //             const tr = document.createElement('tr');
-// //
-// //             line.forEach(cell => {
-// //                 let td;
-// //                 if (index === 0) {
-// //                     td = document.createElement('th')
-// //                 } else {
-// //                     td = document.createElement('td')
-// //                 }
-// //                 td.textContent = cell;
-// //                 tr.appendChild(td);
-// //             })
-// //             table.appendChild(tr);
-// //         })
-// //         carList.appendChild(table);
-// //     })
-// // })
-// //
+const APP = {
+    data: [],   // Global property data
+    init() {
+        APP.addListeners();
+    },
+    addListeners() {
+        const form = document.querySelector('#collectReservation');
+        form.addEventListener('submit', APP.saveData);
+
+        document
+            .querySelector('.reservationExportButton')
+            .addEventListener('click', APP.exportData);
+
+        document
+            .querySelector('.reservationList')
+            .addEventListener('dblclick', APP.editCell);
+    },
+    saveData(ev) {
+        ev.preventDefault();          // We are preventing to reload each time
+        const form = ev.target;         // ev is submit event and ev target is form
+        const formdata = new FormData(form);    // name attributes in html file ; is passed into form data Object
+        //save the data in APP.data
+        APP.cacheData(formdata);
+        //build a row in the table
+        APP.buildRow(formdata);
+        //clear the form
+        form.reset();
+        //focus on first name
+        document.getElementById('fullName').focus();
+    },
+    cacheData(formdata) {
+        //extract the data from the FormData object and update APP.data
+        APP.data.push(Array.from(formdata.values()));
+        // console.table(APP.data);
+    },
+    buildRow(formdata) {     //Form data Object
+        const tbody = document.querySelector('.container > table > .reservationList');
+        const tr = document.createElement('tr');
+        const cancelButton  = document.createElement('button');
+        const div = document.createElement('div');
+        div.classList.add('div-block-reservation');
+        tr.innerHTML = '';
+        tr.setAttribute('data-row', document.querySelectorAll('tbody tr').length);
+        let col = 0;
+        // loop through the FormData object entries and build a row with
+        for (let entry of formdata.entries()) {         // Key and value
+            tr.innerHTML += `<td data-col="${col}" data-name="${entry[0]}">${entry[1]}</td>`;   // Storing K n V
+            col++;
+        }
+        cancelButton.innerHTML = "Cancel";
+        cancelButton.classList.add('cancelButton');
+
+        cancelButton.addEventListener('click', function () {
+            this.parentElement.classList.add("is-hidden")
+        });
+
+        div.append(cancelButton);
+        div.append(tr);
+        tbody.append(div);
+        // data references for later editing
+    },
+    exportData() {
+        //insert the header row
+        APP.data.unshift(['Full Name', 'Car Selected', 'Pickup Date', 'Return Date']);  // adding header first row
+        //convert array to a string with \n at the end
+        let str = '';
+        APP.data.forEach((row) => {
+            str += row
+                .map((col) => JSON.stringify(col))
+                .join(',')
+                .concat('\n');
+        });
+
+        //create the file
+        let filename = `reservation_report.${Date.now()}.csv`;
+        let file = new File([str], filename, { type: 'text/csv' });
+
+        //create an anchor tag with "download" attribute
+        let a = document.createElement('a');
+        a.href = URL.createObjectURL(file);
+        a.download = filename;
+        a.click();
+        //and click the anchor
+    },
+    editCell(ev) {
+        let cell = ev.target.closest('td');
+        if (cell) {
+            let row = +cell.parentElement.getAttribute('data-row');
+            let col = +cell.getAttribute('data-col');
+            //a td was clicked so make it editable
+            cell.contentEditable = true;
+            cell.focus();
+            let txt = cell.textContent;
+            cell.addEventListener('keydown', function save(ev) {
+                if (ev.key === 'Enter' || ev.code === 'Enter') {
+                    cell.contentEditable = false;
+                    cell.removeEventListener('keydown', save);
+                    APP.data[row][col] = cell.textContent;
+                    console.table(APP.data);
+                }
+            });
+            //listen for the enter key to end the editing
+            //update the APP.data
+        }
+    },
+};
+
+document.addEventListener('DOMContentLoaded', APP.init);
+
+
+
+
