@@ -33,9 +33,6 @@ const car4 = {
 }
 const cars=[car1,car2,car3,car4];
 
-//####################################################################################################################
-//Cars Section
-
     let filteredCar = [];
     const container = document.querySelector('.cars-container'); // Selecting container of cars
     const carFilter = document.querySelector('.cars-filter');
@@ -56,8 +53,7 @@ const cars=[car1,car2,car3,car4];
         filer_options.classList.add('is-hidden');
     });
 
-    function carTypeFilter(carFilter)
-{
+    function carTypeFilter(carFilter) {
     // console.log("I am inside car Filter")
     if (carFilter.value !== "all") {
         for (let currentCar of cars) {
@@ -87,7 +83,6 @@ function getPriceMinMax(stringToSplit, separator) {
         console.error("Invalid data type: Not string:", stringToSplit);
         return;
     }
-
     const [minPrice, maxPrice] = stringToSplit.split('-').map(Number);  //  "0-50" -> [0, 50]
     return [minPrice, maxPrice];
 }
@@ -142,19 +137,19 @@ function displayCar(min, max) {
 
 //####################################################################################################################
 //Reservation Section
-const fullName = document.querySelector('#fullName');
-const reservationCar = document.querySelector('#reservationCar');
-const pickupDate = document.querySelector('#pickupDate');
-const returnDate = document.querySelector('#returnDate');
-
-const submitButton = document.querySelector('#submitButton');
-
-submitButton.addEventListener('click',function (e){
-    e.preventDefault();
-
-    console.log("clicked");
-    console.log("");
-})
-
+// const fullName = document.querySelector('#fullName');
+// const reservationCar = document.querySelector('#reservationCar');
+// const pickupDate = document.querySelector('#pickupDate');
+// const returnDate = document.querySelector('#returnDate');
+//
+// const submitButton = document.querySelector('#submitButton');
+//
+// submitButton.addEventListener('click',function (e){
+//     e.preventDefault();
+//
+//     console.log("clicked");
+//     console.log("");
+// })
+//
 
 
